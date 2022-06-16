@@ -10,7 +10,6 @@ import math
 from connect4 import COLUMN_COUNT
 
 
-
 class connect4Player(object):
 	def __init__(self, position, seed=0):
 		self.position = position
@@ -80,10 +79,7 @@ class stupidAI(connect4Player):
 		elif 6 in indices:
 			move[:] = [6]
 		else:
-			move[:] = [0]
-
-
-			
+			move[:] = [0]			
 			
 			
 class minimaxAI(connect4Player):
@@ -130,8 +126,7 @@ class minimaxAI(connect4Player):
 			if p == False : continue
 			newboard = deepcopy(env)
 			
-			v = min(v, self.MAXIMIZING_PLAYER(newboard, depth - 1, i, player))
-			
+			v = min(v, self.MAXIMIZING_PLAYER(newboard, depth - 1, i, player))	
 			
 		return v
 	
@@ -154,10 +149,8 @@ class minimaxAI(connect4Player):
 			if p == False : continue
 			newboard = deepcopy(env)
 
-			v = max(v, self.MINIMIZING_PLAYER(newboard, depth - 1, i, player))
-			
+			v = max(v, self.MINIMIZING_PLAYER(newboard, depth - 1, i, player)	
 		return v
-	
 	
 	#Evaluation function 
 	
@@ -185,14 +178,10 @@ class minimaxAI(connect4Player):
 		env.history[0].append(move)
 
 
-
-
-
 #class alphaBetaAI 
 		
 class alphaBetaAI(connect4Player):
-	
-	
+		
 #MC calls minimax and alphabeta exactly the same way 
 
 	
@@ -227,7 +216,6 @@ class alphaBetaAI(connect4Player):
 #pass alpha and beta as parameters from min and max functions
 		
 		
-		
 	def MINIMIZING_PLAYER(self, env, depth, move, player, alpha, beta):
 	
 		
@@ -253,15 +241,8 @@ class alphaBetaAI(connect4Player):
 				break
 			
 		return value	
-	
-	
-	
-	
-						
-	
-	def MAXIMIZING_PLAYER(self, env, depth, move, player, alpha, beta):
-		
 
+	def MAXIMIZING_PLAYER(self, env, depth, move, player, alpha, beta):
 		
 		switch = {1:2,2:1}
 		self.simulateMove(env, move, player)
@@ -284,11 +265,6 @@ class alphaBetaAI(connect4Player):
 			if value >= beta:
 				break
 		return value
-
-	
-	
-	
-	
 	
 	
 	def evaluationFunction(self, board):
@@ -304,17 +280,11 @@ class alphaBetaAI(connect4Player):
 		
 		return eval 	
 	
-	
-
 	def simulateMove(self, env, move, player):
 		env.board[env.topPosition[move]][move] = player
 		env.topPosition[move] -= 1
 		env.history[0].append(move)
 		
-	
-	
-	
-
 
 SQUARESIZE = 100
 BLUE = (0,0,255)
@@ -346,6 +316,3 @@ evals = [
 			[4, 6, 8,10, 8, 6, 4],
 			[3, 4, 5, 7, 5, 4, 3]
 		]
-
-
-
